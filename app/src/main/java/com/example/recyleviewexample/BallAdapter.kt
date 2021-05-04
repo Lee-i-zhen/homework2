@@ -14,9 +14,6 @@ class BallAdapter(val ballList: List<Balls>): RecyclerView.Adapter<BallAdapter.V
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val ballImage: ImageView = view.findViewById(R.id.imageView)//imageView 是 my_layout 裡的id
         val ballName: TextView = view.findViewById(R.id.textView)
-
-        val ballImage2: ImageView = view.findViewById(R.id.sportimage)
-        val ballName2: TextView = view.findViewById(R.id.sportname)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -24,9 +21,9 @@ class BallAdapter(val ballList: List<Balls>): RecyclerView.Adapter<BallAdapter.V
         val viewHolder = ViewHolder(view)
 
         viewHolder.itemView.setOnClickListener {  //onClick
-            Toast.makeText(parent.context, ballList[viewHolder.adapterPosition].name, //navigation
-            Toast.LENGTH_SHORT).show()//Toast是跑出來閃一下的字
-
+//            Toast.makeText(parent.context, ballList[viewHolder.adapterPosition].name, //navigation
+//            Toast.LENGTH_SHORT).show()//Toast是跑出來閃一下的字
+              view?.findNavController()?.navigate(MyDirections.actionMyToSport2(ballList[viewHolder.adapterPosition].name))
         }
         return viewHolder
 

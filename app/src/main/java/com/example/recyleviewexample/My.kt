@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.recyleviewexample.databinding.ActivityMainBinding
 
 
-class my : Fragment() {
+class My : Fragment() {
     private lateinit var binding: FragmentMyBinding
     private val ballList = ArrayList<Balls>()
 //    private val ballList2 = ArrayList<Balls>()

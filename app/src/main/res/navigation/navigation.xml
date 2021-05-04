@@ -6,22 +6,25 @@
     app:startDestination="@id/my">
 
     <fragment
-        android:id="@+id/sport"
-        android:name="com.example.recyleviewexample.sport"
-        android:label="fragment_sport"
-        tools:layout="@layout/fragment_sport" >
-        <action
-            android:id="@+id/action_sport_to_my"
-            app:destination="@id/my" />
-    </fragment>
-    <fragment
         android:id="@+id/my"
-        android:name="com.example.recyleviewexample.my"
+        android:name="com.example.recyleviewexample.My"
         android:label="fragment_my"
         tools:layout="@layout/fragment_my" >
         <action
-            android:id="@+id/action_my_to_sport"
-            app:destination="@id/sport" />
+            android:id="@+id/action_my_to_sport2"
+            app:destination="@id/sport2" />
+    </fragment>
+    <fragment
+        android:id="@+id/sport2"
+        android:name="com.example.recyleviewexample.Sport2"
+        android:label="Sport2"
+        tools:layout="@layout/fragment_sport2">
+        <action
+            android:id="@+id/action_sport2_to_my"
+            app:destination="@id/my" />
+        <argument
+            android:name="name"
+            app:argType="string" />
     </fragment>
 
 
