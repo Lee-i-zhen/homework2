@@ -1,17 +1,22 @@
 package com.example.recyleviewexample
 
+import android.text.Layout
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 //adapter 是 將那面的東西都要收到這，將做好的list放到該放的位置
 class BallAdapter(val ballList: List<Balls>): RecyclerView.Adapter<BallAdapter.ViewHolder>() {
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val ballImage: ImageView = view.findViewById(R.id.imageView)//imageView 是 my_layout 裡的id
         val ballName: TextView = view.findViewById(R.id.textView)
+
+        val ballImage2: ImageView = view.findViewById(R.id.sportimage)
+        val ballName2: TextView = view.findViewById(R.id.sportname)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -21,6 +26,7 @@ class BallAdapter(val ballList: List<Balls>): RecyclerView.Adapter<BallAdapter.V
         viewHolder.itemView.setOnClickListener {  //onClick
             Toast.makeText(parent.context, ballList[viewHolder.adapterPosition].name, //navigation
             Toast.LENGTH_SHORT).show()//Toast是跑出來閃一下的字
+
         }
         return viewHolder
 

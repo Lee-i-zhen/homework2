@@ -15,7 +15,7 @@ import com.example.recyleviewexample.databinding.ActivityMainBinding
 class my : Fragment() {
     private lateinit var binding: FragmentMyBinding
     private val ballList = ArrayList<Balls>()
-
+//    private val ballList2 = ArrayList<Balls>()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -24,16 +24,16 @@ class my : Fragment() {
         binding = FragmentMyBinding.inflate(layoutInflater)
         //setup our initial data
         initBallList()
+//        initBallList2()
         //configure
-        val layoutManager = LinearLayoutManager(this)
+        val layoutManager = LinearLayoutManager(requireContext())
 
         binding.recycleView.layoutManager = layoutManager
         val adapter = BallAdapter(ballList) //pass by reference
         binding.recycleView.adapter = adapter
         binding.recycleView.addItemDecoration(
             DividerItemDecoration(
-                this,
-                DividerItemDecoration.VERTICAL
+                requireContext(), DividerItemDecoration.VERTICAL
             )
         )  //add a divider line
 
@@ -43,13 +43,19 @@ class my : Fragment() {
 
     private fun initBallList()//data class裡的格式
     {
-        repeat(6) {
-            ballList.add(Balls("Baseball", R.drawable.baseball))
-            ballList.add(Balls("Basketball", R.drawable.basketball))
-            ballList.add(Balls("Football", R.drawable.football))
-            ballList.add(Balls("Other", R.drawable.other))
-        }
+
+        ballList.add(Balls("Baseball", R.drawable.baseball))
+        ballList.add(Balls("Basketball", R.drawable.basketball))
+        ballList.add(Balls("Football", R.drawable.football))
+        ballList.add(Balls("Other", R.drawable.other))
 
     }
+//    private fun initBallList2()//data class裡的格式
+//    {
+//        ballList2.add(Balls("Baseball", R.drawable.baseball_photo))
+//        ballList2.add(Balls("Basketball", R.drawable.basketball_photo))
+//        ballList2.add(Balls("Football", R.drawable.football_photo))
+//        ballList2.add(Balls("Other", R.drawable.other_photo))
+//    }
 
 }
